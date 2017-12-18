@@ -1,0 +1,46 @@
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8772
+spring:
+  application:
+    name: service-zuul
+  cloud:
+#    loadbalancer:
+#      retry:
+#        enabled: false
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: /health
+        healthCheckInterval: 5s
+        instance-id: service-zuul
+        enabled: true
+        hostname: localhost
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: app
+#      retryable: true
+    api-b:
+      path: /api-b/**
+      serviceId: app
+#      retryable: true
+#  host:
+#      connect-timeout-millis: 60000
+#      socket-timeout-millis: 60000
+#  retryable: false
+
+#hystrix:
+#    command:
+#        default:
+#            execution:
+#                timeout:
+#                        enabled: true
+#                isolation:
+#                    thread:
+#                        timeoutInMilliseconds: 60000

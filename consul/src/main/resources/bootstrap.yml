@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: /health
+        healthCheckInterval: 5s
+        instance-id: consul-miya
+        service-name: app
+        tags: test
+        port: ${server.port}
+        enabled: true
+        hostname: localhost
+      config:
+        enabled: true
+        format: PROPERTIES
+        data-key: node1
+      enabled: true
+  application:
+    name: consul-miya
+server:
+  port: 8502
