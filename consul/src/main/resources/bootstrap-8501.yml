@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: 8501
   cloud:
     consul:
       host: localhost
@@ -6,7 +8,7 @@ spring:
       discovery:
         healthCheckPath: /health
         healthCheckInterval: 5s
-        instance-id: consul-miya
+        instance-id: consul-service-1
         service-name: app
         tags: test
         port: ${server.port}
@@ -18,6 +20,6 @@ spring:
         data-key: node1
       enabled: true
   application:
-    name: consul-miya
+    name: consul-service
 server:
-  port: 8502
+  port: 8501

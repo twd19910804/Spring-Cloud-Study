@@ -1,0 +1,25 @@
+spring:
+  profiles:
+      active: 8502
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: /health
+        healthCheckInterval: 5s
+        instance-id: consul-service-2
+        service-name: app
+        tags: test
+        port: ${server.port}
+        enabled: true
+        hostname: localhost
+      config:
+        enabled: true
+        format: PROPERTIES
+        data-key: node1
+      enabled: true
+  application:
+    name: consul-service
+server:
+  port: 8502

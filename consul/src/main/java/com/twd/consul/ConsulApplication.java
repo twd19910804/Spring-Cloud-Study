@@ -24,6 +24,7 @@ public class ConsulApplication {
 	private TestConfig testConfig;
 	@RequestMapping("/hi")
 	public String home() {
+		System.out.println("hi");
 		return "hi ,i'm miya " + testConfig.getName();
 	}
 }
