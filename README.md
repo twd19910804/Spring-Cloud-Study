@@ -1,1 +1,1 @@
-# Spring-Cloud-Study
+# This project is used for studing SpringCloud.
